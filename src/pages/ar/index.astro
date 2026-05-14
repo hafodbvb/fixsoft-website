@@ -1,0 +1,142 @@
+---
+// Import the necessary components
+import MainLayout from '@/layouts/MainLayout.astro';
+import HeroSection from '@components/sections/landing/HeroSection.astro';
+import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
+import ClientsSection from '@components/sections/landing/ClientsSection.astro';
+import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
+import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
+import TestimonialsSection from '@components/sections/testimonials/TestimonialsSection.astro';
+import PricingSection from '@components/sections/pricing/PricingSection.astro';
+import FAQ from '@components/sections/misc/FAQ.astro';
+import AnnouncementBanner from '@components/ui/banners/AnnouncementBanner.astro';
+import heroImage from '@images/fixsoft-hero.png';
+import faqs from '@data/ar/faqs.json';
+import features from '@data/ar/features.json';
+import pricing from '@data/ar/pricing.json';
+import featureImage from '@images/22.png';
+import construction from '@images/enterprise-systems.png';
+import tools from '@images/devappmobile.png';
+import dashboard from '@images/fixsoftrepair-saas.png';
+import { partnersData } from '@/data_files/constants';
+
+const avatarSrcs: Array<string> = [
+  '/review-kherfiadel.jpg',
+  '/review-danilab.jpg',
+  '/review-mohamedsalah.jpg',
+  '/review-zouwiyacine.jpg',
+];
+---
+
+<MainLayout lang="ar">
+  <AnnouncementBanner
+    btnId="dismiss-button"
+    btnTitle="اكتشف FixSoftRepair — نظام إدارة ورشات الإصلاح"
+    url="/products"
+  />
+
+  <HeroSection
+    title=`ابنِ أعمالك بذكاء مع <span class="text-cyan-500 dark:text-cyan-400">FixSoft</span>`
+    subTitle="حلول برمجية احترافية للشركات — مواقع ويب، تطبيقات جوال، برامج مكتبية، وأنظمة SaaS جاهزة للاستخدام."
+    primaryBtn="استكشف منتجاتنا"
+    primaryBtnURL="/ar/products"
+    secondaryBtn="تواصل معنا"
+    secondaryBtnURL="/ar/contact"
+    withReview={true}
+    avatars={avatarSrcs}
+    rating=`<span class="font-bold">4.9</span> / 5`
+    starCount={5}
+    reviews=`من أكثر من <span class="font-bold">200+</span> عميل`
+    src={heroImage}
+    alt="منتجات FixSoft البرمجية"
+  />
+
+  <ClientsSection
+    title="مبنية بأفضل التقنيات في الصناعة"
+    subTitle="نستخدم أحدث الأدوات لتقديم حلول سريعة وموثوقة وقابلة للتطوير."
+    partners={partnersData}
+  />
+
+  <FeaturesGeneral
+    title="كل ما يحتاجه نشاطك التجاري"
+    subTitle="في FixSoft نبني حلولاً رقمية مخصصة — من مواقع الويب الاحترافية وتطبيقات الجوال إلى الأنظمة المؤسسية الكاملة ومنتجات SaaS الجاهزة للنشر."
+    src={featureImage}
+    alt="منتجات FixSoft البرمجية"
+    features={features}
+  />
+
+  <FeaturesNavs
+    title=`اكتشف حلول <span class="text-cyan-500 dark:text-cyan-400">FixSoft</span> المصممة خصيصاً لاحتياجات نشاطك التجاري.`
+    tabs={[
+      {
+        heading: 'تطوير الويب والجوال',
+        content:
+          'نبني مواقع ويب وتطبيقات جوال عصرية وعالية الأداء لنظامَي Android وiOS. من الصفحات الترويجية إلى المنصات المعقدة — مصممة لتنمية أعمالك.',
+        svg: 'tools',
+        src: tools,
+        alt: 'تطوير الويب والجوال بواسطة FixSoft',
+        first: true,
+      },
+      {
+        heading: 'FixSoftRepair — SaaS',
+        content:
+          'FixSoftRepair هو نظامنا الجاهز لإدارة ورشات الإصلاح. أدِر العملاء، المخزون، الإصلاحات، الفواتير، الموظفين، والبيع بالتقسيط — كل ذلك في منصة واحدة.',
+        svg: 'dashboard',
+        src: dashboard,
+        alt: 'واجهة لوحة تحكم FixSoftRepair',
+        second: true,
+      },
+      {
+        heading: 'الأنظمة المؤسسية والمخصصة',
+        content:
+          'نصمم ونطور برامج مخصصة وأنظمة مؤسسية مبنية حول سير عملك الخاص. قابلة للتطوير، آمنة، ومدعومة من فريقنا المتخصص.',
+        svg: 'house',
+        src: construction,
+        alt: 'برمجيات مؤسسية مخصصة من FixSoft',
+      },
+    ]}
+  />
+
+  <TestimonialsSection
+    title="نتائج يثق بها عملاؤنا"
+    subTitle="تقدم FixSoft برمجيات سريعة وموثوقة تساعد الشركات على العمل بكفاءة أعلى منذ اليوم الأول."
+    testimonials={[
+      {
+        content:
+          'غيّر FixSoft طريقة إدارتنا لورشة الإصلاح. FixSoftRepair سهل الاستخدام وقوي، وفريق الدعم دائماً موجود عند الحاجة. تحول حقيقي في طريقة العمل!',
+        author: 'ياسين مزياني',
+        role: 'مالك | مركز TechFix للإصلاح',
+        avatarSrc:
+          'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+      },
+    ]}
+    statistics={[
+      {
+        count: '+200',
+        description: 'شركة تعمل بحلول FixSoft',
+      },
+      {
+        count: '+5',
+        description: 'سنوات من الخبرة في تطوير البرمجيات',
+      },
+      {
+        count: '98%',
+        description: 'نسبة رضا العملاء عبر جميع المشاريع',
+      },
+      {
+        count: '3x',
+        description: 'تسريع في العمليات أفاد به مستخدمو FixSoftRepair',
+      },
+    ]}
+  />
+
+  <PricingSection pricing={pricing} />
+
+  <FAQ title="الأسئلة<br />الشائعة" faqs={faqs} />
+
+  <HeroSectionAlt
+    title="لنبني مشروعك القادم معاً"
+    subTitle="FixSoft جاهزة لتحويل أفكارك إلى واقع — من البرمجيات المخصصة إلى حلول SaaS الجاهزة. تواصل مع فريقنا اليوم."
+    url="https://www.facebook.com/fixsoftdz3444/"
+  />
+</MainLayout>

@@ -1,0 +1,141 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import HeroSection from '@components/sections/landing/HeroSection.astro';
+import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
+import ClientsSection from '@components/sections/landing/ClientsSection.astro';
+import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
+import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
+import TestimonialsSection from '@components/sections/testimonials/TestimonialsSection.astro';
+import PricingSection from '@components/sections/pricing/PricingSection.astro';
+import FAQ from '@components/sections/misc/FAQ.astro';
+import AnnouncementBanner from '@components/ui/banners/AnnouncementBanner.astro';
+import heroImage from '@images/fixsoft-hero.png';
+import faqs from '@data/fr/faqs.json';
+import features from '@data/fr/features.json';
+import pricing from '@data/fr/pricing.json';
+import featureImage from '@images/22.png';
+import construction from '@images/enterprise-systems.png';
+import tools from '@images/devappmobile.png';
+import dashboard from '@images/fixsoftrepair-saas.png';
+import { partnersData } from '@/data_files/constants';
+
+const avatarSrcs: Array<string> = [
+  '/review-kherfiadel.jpg',
+  '/review-danilab.jpg',
+  '/review-mohamedsalah.jpg',
+  '/review-zouwiyacine.jpg',
+];
+---
+
+<MainLayout lang="fr">
+  <AnnouncementBanner
+    btnId="dismiss-button"
+    btnTitle="Découvrez FixSoftRepair — Système de gestion d'atelier"
+    url="/fr/products"
+  />
+
+  <HeroSection
+    title=`Développez plus intelligemment avec <span class="text-cyan-500 dark:text-cyan-400">FixSoft</span>`
+    subTitle="Des solutions logicielles professionnelles pour les entreprises — plateformes web, applications mobiles, logiciels desktop et produits SaaS prêts à déployer."
+    primaryBtn="Explorer nos produits"
+    primaryBtnURL="/fr/products"
+    secondaryBtn="Nous contacter"
+    secondaryBtnURL="/fr/contact"
+    withReview={true}
+    avatars={avatarSrcs}
+    rating=`<span class="font-bold">4.9</span> / 5`
+    starCount={5}
+    reviews=`De plus de <span class="font-bold">200+</span> clients`
+    src={heroImage}
+    alt="Produits logiciels FixSoft"
+  />
+
+  <ClientsSection
+    title="Construit avec les meilleures technologies"
+    subTitle="Nous utilisons les meilleurs outils pour livrer des solutions rapides, fiables et évolutives."
+    partners={partnersData}
+  />
+
+  <FeaturesGeneral
+    title="Tout ce dont votre entreprise a besoin"
+    subTitle="Chez FixSoft, nous créons des solutions numériques sur mesure — des sites web professionnels et applications mobiles aux systèmes d'entreprise complets et plateformes SaaS prêtes à déployer."
+    src={featureImage}
+    alt="Gamme de produits logiciels FixSoft"
+    features={features}
+  />
+
+  <FeaturesNavs
+    title=`Découvrez les solutions <span class="text-cyan-500 dark:text-cyan-400">FixSoft</span> adaptées à vos besoins.`
+    tabs={[
+      {
+        heading: 'Développement Web & Mobile',
+        content:
+          'Nous créons des sites web modernes et performants ainsi que des applications mobiles pour Android et iOS. Des landing pages aux plateformes complexes — conçus pour faire croître votre entreprise.',
+        svg: 'tools',
+        src: tools,
+        alt: 'Développement web et mobile par FixSoft',
+        first: true,
+      },
+      {
+        heading: 'FixSoftRepair — SaaS',
+        content:
+          'FixSoftRepair est notre système clé en main de gestion d\'atelier de réparation. Gérez clients, inventaire, réparations, factures, personnel et ventes à crédit — tout en une seule plateforme.',
+        svg: 'dashboard',
+        src: dashboard,
+        alt: 'Interface du tableau de bord FixSoftRepair',
+        second: true,
+      },
+      {
+        heading: 'Systèmes d\'entreprise sur mesure',
+        content:
+          'Nous concevons et développons des logiciels personnalisés et des systèmes d\'entreprise adaptés à votre flux de travail spécifique. Évolutifs, sécurisés et soutenus par notre équipe dédiée.',
+        svg: 'house',
+        src: construction,
+        alt: 'Logiciels d\'entreprise sur mesure par FixSoft',
+      },
+    ]}
+  />
+
+  <TestimonialsSection
+    title="Des résultats en qui nos clients ont confiance"
+    subTitle="FixSoft livre des logiciels rapides et fiables qui aident les entreprises à fonctionner plus efficacement dès le premier jour."
+    testimonials={[
+      {
+        content:
+          'FixSoft a transformé la gestion de notre atelier. FixSoftRepair est intuitif, puissant et l\'équipe de support est toujours disponible quand on en a besoin. Un vrai changement de jeu !',
+        author: 'Yacine Meziani',
+        role: 'Propriétaire | TechFix Repair Center',
+        avatarSrc:
+          'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
+      },
+    ]}
+    statistics={[
+      {
+        count: '200+',
+        description: 'entreprises propulsées par les solutions FixSoft',
+      },
+      {
+        count: '5+',
+        description: 'années d\'expérience en développement logiciel',
+      },
+      {
+        count: '98%',
+        description: 'taux de satisfaction client sur tous les projets',
+      },
+      {
+        count: '3x',
+        description: 'opérations plus rapides rapportées par les utilisateurs FixSoftRepair',
+      },
+    ]}
+  />
+
+  <PricingSection pricing={pricing} />
+
+  <FAQ title="Questions<br />fréquemment posées" faqs={faqs} />
+
+  <HeroSectionAlt
+    title="Construisons votre prochain projet"
+    subTitle="FixSoft est prêt à donner vie à vos idées — du logiciel sur mesure aux solutions SaaS prêtes à l'emploi. Contactez notre équipe dès aujourd'hui."
+    url="https://www.facebook.com/fixsoftdz3444/"
+  />
+</MainLayout>

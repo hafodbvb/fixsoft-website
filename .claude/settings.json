@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs sed *)",
+      "Bash(pkill -f \"astro dev\")",
+      "Bash(rm -rf .astro/cache)",
+      "Bash(pnpm dev *)",
+      "Bash(curl -s \"http://localhost:4324/ar\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s \"http://localhost:4324/ar\")",
+      "Bash(curl -s \"http://localhost:4324/products/fixsoftrepair\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s \"http://localhost:4324/products/fixsoftrepair\")",
+      "Bash(curl -s \"http://localhost:4324/products\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s \"http://localhost:4324/products\")",
+      "Bash(curl -s \"http://localhost:4324/products/fsr-01-overview\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s \"http://localhost:4324/products/fsr-04-repairs\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s \"http://localhost:4324/products/fsr-11-zakat\" -o /dev/null -w \"%{http_code}\")",
+      "Bash(curl -s \"http://localhost:4324/products/fsr-04-repairs\")",
+      "Bash(pnpm build *)",
+      "Bash(sed -i 's/Windows 10 \\\\/ 11/Windows 7 \\\\/ 8 \\\\/ 10 \\\\/ 11/g' c:/Users/hafod/OneDrive/Bureau/WEB/ScrewFast-main/src/pages/products/index.astro c:/Users/hafod/OneDrive/Bureau/WEB/ScrewFast-main/src/pages/fr/products/index.astro c:/Users/hafod/OneDrive/Bureau/WEB/ScrewFast-main/src/pages/ar/products/index.astro)",
+      "Bash(sed -i 's/>v2\\\\.0</>v5.2.8</g' c:/Users/hafod/OneDrive/Bureau/WEB/ScrewFast-main/src/pages/products/index.astro c:/Users/hafod/OneDrive/Bureau/WEB/ScrewFast-main/src/pages/fr/products/index.astro c:/Users/hafod/OneDrive/Bureau/WEB/ScrewFast-main/src/pages/ar/products/index.astro)"
+    ]
+  }
+}

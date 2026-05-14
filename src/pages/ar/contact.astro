@@ -1,0 +1,33 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import ContactSection from '@components/sections/misc/ContactSection.astro';
+import { SITE } from '@data/constants';
+
+const pageTitle = `تواصل معنا | ${SITE.title}`;
+const metaDescription = 'هل لديك سؤال أو مشروع؟ تواصل مع فريق FixSoft — نبني مواقع ويب وتطبيقات جوال وأنظمة برمجية مخصصة للشركات.';
+const ogTitle = `تواصل معنا | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  lang="ar"
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://fixsoft.dz/ar/contact',
+    url: 'https://fixsoft.dz/ar/contact',
+    name: ogTitle,
+    description: metaDescription,
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://fixsoft.dz/ar',
+      name: SITE.title,
+      description: SITE.description,
+    },
+    inLanguage: 'ar',
+  }}
+>
+  <ContactSection />
+</MainLayout>

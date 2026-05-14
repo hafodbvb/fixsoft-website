@@ -1,0 +1,242 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PrimaryCTA from '@components/ui/buttons/PrimaryCTA.astro';
+import CardSmall from '@components/ui/cards/CardSmall.astro';
+import CardWide from '@components/ui/cards/CardWide.astro';
+import FeaturesStatsAlt from '@components/sections/features/FeaturesStatsAlt.astro';
+import TestimonialsSectionAlt from '@components/sections/testimonials/TestimonialsSectionAlt.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { SITE } from '@data/constants';
+
+const product: CollectionEntry<'products'>[] = (
+  await getCollection('products', ({ id }) => id.startsWith('ar/fsr-'))
+).sort((a, b) => a.data.main.id - b.data.main.id);
+
+const testimonials = [
+  {
+    content: 'ماشاء الله برنامج رائع. أحسن ما فيه هو سرعة الاستجابة وطريقة أخذهم بعين الاعتبار ملاحظات العملاء — هذا هو المصداقية الحقيقية.',
+    author: 'خرفي عادل',
+    role: 'زبون FixSoftRepair',
+    avatarSrc: '/review-kherfiadel.jpg',
+    avatarAlt: 'خرفي عادل',
+  },
+  {
+    content: 'برنامج ممتاز من تجربتي الشخصية — سلس جداً مع تفاصيل دقيقة. ما يتميز به هو الجدية والاحترافية في متابعة ملاحظات العملاء وسرعة التحديثات. ميزات جديدة تتوالى باستمرار. شكراً على هذا العمل الرائع.',
+    author: 'Danilab Informatique',
+    role: 'زبون FixSoftRepair',
+    avatarSrc: '/review-danilab.jpg',
+    avatarAlt: 'Danilab Informatique',
+  },
+  {
+    content: 'شكر كبير لـ FixSoft — هذا البرنامج حل فعلاً مشكلة كبيرة كانت عندي في تنظيم الإصلاحات في دكاني. فريق متميز، أتمنى لكم التوفيق والنجاح المستمر.',
+    author: 'محمد صلاح سعدون',
+    role: 'زبون FixSoftRepair',
+    avatarSrc: '/review-mohamedsalah.jpg',
+    avatarAlt: 'محمد صلاح سعدون',
+  },
+  {
+    content: 'ماشاء الله، ما برنامج هذا. جربت 4 برامج قبله — كل واحد عنده مشاكله. هذا الأفضل بلا منازع. بارك الله فيكم وجازاكم خيراً.',
+    author: 'Sii Dou Lr',
+    role: 'زبون FixSoftRepair',
+    avatarSrc: '/review-sidlour.jpg',
+    avatarAlt: 'Sii Dou Lr',
+  },
+  {
+    content: 'البرنامج يتكلم عن نفسه — سهل الاستخدام وفيه كل ما تحتاجه. سيساعدك كثيراً في دكانك. أنا أستخدمه يومياً وأنصح به بشدة.',
+    author: 'زواوي ياسين',
+    role: 'زبون FixSoftRepair',
+    avatarSrc: '/review-zouwiyacine.jpg',
+    avatarAlt: 'زواوي ياسين',
+  },
+  {
+    content: 'برنامج ممتاز وسلس، ماشاء الله.',
+    author: 'Abdelhak InfoPc',
+    role: 'زبون FixSoftRepair',
+    avatarSrc: '/review-infopcabdelhak.jpg',
+    avatarAlt: 'Abdelhak InfoPc',
+  },
+];
+
+const pageTitle = `FixSoftRepair | ${SITE.title}`;
+---
+
+<MainLayout
+  lang="ar"
+  title={pageTitle}
+  customDescription="FixSoftRepair — نظام متكامل لإدارة ورش الإصلاح للهواتف، السيارات، الإلكترونيات والمزيد."
+  customOgTitle="FixSoftRepair | نظام إدارة ورشة الإصلاح"
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://fixsoft.dz/ar/products',
+    url: 'https://fixsoft.dz/ar/products',
+    name: 'FixSoftRepair | FixSoft',
+    description: 'نظام متكامل لإدارة ورشة الإصلاح.',
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://fixsoft.dz',
+      name: 'FixSoft',
+      description: 'حلول برمجية احترافية من FixSoft.',
+    },
+    inLanguage: 'ar',
+  }}
+>
+  <div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1 class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200">
+          FixSoftRepair
+        </h1>
+        <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400">
+          نظام متكامل لإدارة ورشة الإصلاح — يغطي كل جانب من جوانب عملك في منصة احترافية واحدة.
+        </p>
+      </div>
+      <PrimaryCTA title="آراء العملاء" url="#testimonials" noArrow={true} />
+    </div>
+
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {product.map((product, index) => {
+        const position = index % 4;
+        if (position === 0 || position === 3) return <CardSmall product={product} productLocale="ar" />;
+        else return <CardWide product={product} productLocale="ar" />;
+      })}
+    </section>
+  </div>
+
+  {/* ── زر الفيديو العائم ── */}
+  <div id="floating-video-btn" class="group fixed bottom-8 end-6 z-40 flex cursor-pointer items-center" style="direction: rtl;">
+    <div class="me-3 max-w-0 overflow-hidden whitespace-nowrap transition-all duration-500 ease-in-out group-hover:max-w-xs">
+      <span class="rounded-xl bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-white shadow-xl shadow-cyan-500/30">
+        شاهد الفيديو التعريفي
+      </span>
+    </div>
+    <button id="open-video-modal" aria-label="شاهد الفيديو التعريفي"
+      class="relative flex size-14 shrink-0 items-center justify-center rounded-full bg-cyan-500 shadow-xl shadow-cyan-500/40 transition-all duration-300 group-hover:scale-110 group-hover:bg-cyan-400">
+      <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-30"></span>
+      <svg class="relative size-6 translate-x-0.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+  </div>
+
+  {/* ── مودال الفيديو ── */}
+  <div id="video-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <div id="video-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+    <div class="relative z-10 w-full max-w-sm overflow-hidden rounded-2xl shadow-2xl">
+      <button id="close-video-modal"
+        class="absolute top-3 end-3 z-20 flex size-8 items-center justify-center rounded-full bg-black/50 text-white transition hover:bg-black/70">
+        <svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="relative w-full" style="padding-bottom: 177.78%">
+        <iframe id="video-iframe" src="" data-src="https://drive.google.com/file/d/1_b1d_qfHKsUhEez59mhPoi3Zhnvz_GWC/preview"
+          class="absolute inset-0 h-full w-full" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('video-modal')!;
+    const iframe = document.getElementById('video-iframe') as HTMLIFrameElement;
+    const closeBtn = document.getElementById('close-video-modal')!;
+    const backdrop = document.getElementById('video-backdrop')!;
+    function openModal() { iframe.src = iframe.dataset.src!; modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.classList.add('hidden'); modal.classList.remove('flex'); iframe.src = ''; document.body.style.overflow = ''; }
+    document.getElementById('open-video-modal')!.addEventListener('click', openModal);
+    document.getElementById('floating-video-btn')!.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+
+  {/* ── شريط الإحصائيات ── */}
+  <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 2xl:max-w-full">
+    <div class="grid grid-cols-2 divide-x divide-x-reverse divide-neutral-200 rounded-2xl border border-neutral-200 bg-white dark:divide-neutral-700 dark:border-neutral-700 dark:bg-neutral-800/40 sm:grid-cols-4">
+      {[
+        { val: '+200', label: 'ورشة إصلاح' },
+        { val: '11',   label: 'قسم متكامل' },
+        { val: '3x',   label: 'سرعة في العمليات' },
+        { val: '98%',  label: 'رضا العملاء' },
+      ].map(s => (
+        <div class="flex flex-col items-center justify-center px-6 py-7 text-center">
+          <span class="text-3xl font-extrabold text-blue-600 dark:text-cyan-400">{s.val}</span>
+          <span class="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* ── قسم التحميل ── */}
+  <div class="mx-auto max-w-[85rem] px-4 pb-14 sm:px-6 lg:px-8 2xl:max-w-full">
+    <div class="rounded-3xl px-8 py-14 sm:px-14 lg:px-20" style="background: linear-gradient(135deg, #0f172a 0%, #0c2340 40%, #0e3a52 70%, #0f172a 100%)">
+      <div class="flex flex-col items-center gap-10 lg:flex-row lg:justify-between">
+        <div class="max-w-lg text-center lg:text-end">
+          <div class="mb-5 inline-flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/5 px-3.5 py-2 backdrop-blur-sm">
+            <svg class="size-5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path class="fill-[#00aff0]" d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+            </svg>
+            <span class="text-xs font-medium text-neutral-300">Windows 7 / 8 / 10 / 11</span>
+            <span class="h-3 w-px bg-neutral-600"></span>
+            <span class="text-xs text-neutral-400">64-bit</span>
+          </div>
+          <h2 class="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">FixSoftRepair</h2>
+          <p class="mt-2 text-lg font-medium text-neutral-400">نظام إدارة ورشة الإصلاح</p>
+          <p class="mt-4 text-sm leading-relaxed text-neutral-500">نسخة كاملة · يعمل بدون إنترنت · يُثبَّت في دقيقتين</p>
+          <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 lg:justify-end">
+            {[
+              'تحديثات مجانية مدى الحياة',
+              'نسخ احتياطي تلقائي',
+              'دعم تقني متخصص',
+            ].map(label => (
+              <span class="flex items-center gap-1.5 text-xs text-neutral-400">
+                <svg class="size-3.5 text-cyan-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                </svg>
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div class="w-full max-w-xs shrink-0">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+            <div class="mb-5 flex items-center justify-between">
+              <span class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">أحدث إصدار</span>
+              <span class="rounded-md bg-cyan-500/10 px-2 py-0.5 text-xs font-bold text-cyan-400 ring-1 ring-cyan-500/20">v5.2.8</span>
+            </div>
+            <a href="https://github.com/hafodbvb/fixsoftrepair/releases/download/FixSoftRepair-Setup64-V5.2.7/FixSoftRepair-Setup64-V5.2.8.exe" id="download-btn" download
+              class="group flex w-full items-center justify-center gap-3 rounded-xl bg-cyan-500 px-6 py-3.5 text-sm font-bold text-neutral-900 transition-all duration-200 hover:bg-cyan-400 active:scale-[.98]">
+              <svg class="size-5 transition-transform duration-200 group-hover:translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+              </svg>
+              تحميل مجاني
+            </a>
+            <p class="mt-3 text-center text-xs text-neutral-500">رابط التحميل قريباً</p>
+            <div class="mt-5 border-t border-white/10 pt-4 text-center">
+              <p class="text-xs text-neutral-500">تحتاج مساعدة في التثبيت؟</p>
+              <a href="/ar/contact" class="mt-1 inline-block text-xs font-medium text-cyan-500 hover:text-cyan-400 transition">
+                تواصل مع فريق الدعم ←
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <FeaturesStatsAlt
+    title="لماذا تختار FixSoftRepair؟"
+    subTitle="نظام متكامل يمنحك كل الأدوات اللازمة لإدارة ورشتك باحترافية — من استلام الجهاز حتى إصدار الفاتورة النهائية."
+    benefits={[
+      'تتبع كامل للصيانات من الاستلام حتى التسليم.',
+      'نقطة بيع متكاملة مع إدارة المخزون وقطع الغيار.',
+      'تقارير مالية دقيقة — فواتير، رواتب، زكاة، ومحاسبة.',
+    ]}
+  />
+
+  <TestimonialsSectionAlt
+    title="ماذا يقول عملاؤنا"
+    testimonials={testimonials}
+  />
+</MainLayout>

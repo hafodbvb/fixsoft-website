@@ -1,0 +1,351 @@
+---
+import AuthBtn from '@components/ui/buttons/AuthBtn.astro';
+import ContactIconBlock from '@components/ui/blocks/ContactIconBlock.astro';
+import TextInput from '@components/ui/forms/input/TextInput.astro';
+import EmailContactInput from '@components/ui/forms/input/EmailContactInput.astro';
+import PhoneInput from '@components/ui/forms/input/PhoneInput.astro';
+import TextAreaInput from '@components/ui/forms/input/TextAreaInput.astro';
+import Icon from '@components/ui/icons/Icon.astro';
+
+const locale = Astro.currentLocale;
+const isAr = locale === 'ar';
+const isFr = locale === 'fr';
+
+const content = isAr ? {
+  title: 'تواصل معنا',
+  subTitle: 'هل لديك سؤال أو تريد البدء في مشروع؟ تواصل مع فريق FixSoft وسنبني لك الحل المناسب.',
+  formTitle: 'أرسل لنا رسالة',
+  formSubTitle: 'سنرد عليك خلال يوم أو يومين عمل.',
+  firstName: 'الاسم الأول',
+  lastName: 'اسم العائلة',
+  details: 'تفاصيل طلبك',
+  send: 'إرسال الرسالة',
+  successMsg: 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.',
+  errorMsg: 'حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.',
+  validationMsg: 'يرجى ملء جميع الحقول بشكل صحيح.',
+  faqHeading: 'الأسئلة الشائعة',
+  faqContent: 'تصفح إجاباتنا على الأسئلة الأكثر شيوعاً.',
+  faqLink: 'زيارة الأسئلة الشائعة',
+  faqURL: '/ar/#faq',
+  productsHeading: 'منتجاتنا',
+  productsContent: 'اطلع على FixSoftRepair وجميع حلولنا البرمجية.',
+  productsLink: 'استكشف المنتجات',
+  productsURL: '/ar/products',
+  locationHeading: 'موقعنا',
+  locationContent: 'FixSoft — الجزائر',
+  locationAddress: 'الجزائر العاصمة، الجزائر',
+  emailHeading: 'راسلنا عبر البريد',
+  emailContent: 'يسعدنا استقبال رسائلكم على',
+  emailLink: 'contact@fixsoft.dz',
+  emailURL: 'mailto:contact@fixsoft.dz',
+  whatsappHeading: 'واتساب',
+  whatsappContent: 'تواصل معنا مباشرة عبر واتساب للرد السريع.',
+  whatsappLink: 'ابدأ المحادثة',
+  whatsappURL: 'https://wa.me/213666616503',
+} : isFr ? {
+  title: 'Contactez-nous',
+  subTitle: "Vous avez une question ou un projet en tête ? L'équipe FixSoft est là pour vous proposer la solution idéale.",
+  formTitle: 'Envoyez-nous un message',
+  formSubTitle: 'Nous vous répondrons sous 1 à 2 jours ouvrables.',
+  firstName: 'Prénom',
+  lastName: 'Nom',
+  details: 'Détails de votre demande',
+  send: 'Envoyer le message',
+  successMsg: 'Votre message a bien été envoyé ! Nous vous répondrons très bientôt.',
+  errorMsg: "Une erreur s'est produite. Veuillez réessayer.",
+  validationMsg: 'Veuillez remplir tous les champs correctement.',
+  faqHeading: 'FAQ',
+  faqContent: 'Trouvez rapidement des réponses aux questions les plus fréquentes.',
+  faqLink: 'Consulter la FAQ',
+  faqURL: '/fr/#faq',
+  productsHeading: 'Nos produits',
+  productsContent: 'Découvrez FixSoftRepair et toutes nos solutions logicielles.',
+  productsLink: 'Explorer les produits',
+  productsURL: '/fr/products',
+  locationHeading: 'Notre localisation',
+  locationContent: 'FixSoft — Algérie',
+  locationAddress: 'Alger, Algérie',
+  emailHeading: 'Contactez-nous par e-mail',
+  emailContent: 'Écrivez-nous directement à',
+  emailLink: 'contact@fixsoft.dz',
+  emailURL: 'mailto:contact@fixsoft.dz',
+  whatsappHeading: 'WhatsApp',
+  whatsappContent: 'Contactez-nous directement sur WhatsApp pour une réponse rapide.',
+  whatsappLink: 'Démarrer la conversation',
+  whatsappURL: 'https://wa.me/213666616503',
+} : {
+  title: 'Contact Us',
+  subTitle: 'Have a question or a project in mind? Reach out to the FixSoft team and we will build the right solution for you.',
+  formTitle: 'Send us a message',
+  formSubTitle: "We'll get back to you within 1–2 business days.",
+  firstName: 'First Name',
+  lastName: 'Last Name',
+  details: 'Project details',
+  send: 'Send Message',
+  successMsg: 'Your message was sent successfully! We will get back to you soon.',
+  errorMsg: 'Something went wrong. Please try again.',
+  validationMsg: 'Please fill in all fields correctly.',
+  faqHeading: 'FAQ',
+  faqContent: 'Find quick answers to our most frequently asked questions.',
+  faqLink: 'Visit FAQ',
+  faqURL: '/#faq',
+  productsHeading: 'Our Products',
+  productsContent: 'Discover FixSoftRepair and all our software solutions.',
+  productsLink: 'Explore Products',
+  productsURL: '/products',
+  locationHeading: 'Our Location',
+  locationContent: 'FixSoft — Algeria',
+  locationAddress: 'Algiers, Algeria',
+  emailHeading: 'Email Us',
+  emailContent: 'Drop us an email at',
+  emailLink: 'contact@fixsoft.dz',
+  emailURL: 'mailto:contact@fixsoft.dz',
+  whatsappHeading: 'WhatsApp',
+  whatsappContent: 'Message us directly on WhatsApp for a fast response.',
+  whatsappLink: 'Start a chat',
+  whatsappURL: 'https://wa.me/213666616503',
+};
+---
+
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <div class="mx-auto max-w-2xl lg:max-w-5xl">
+    <div class="text-center">
+      <h1
+        class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
+      >
+        {content.title}
+      </h1>
+      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+        {content.subTitle}
+      </p>
+    </div>
+
+    <div class="mt-12 grid items-center gap-6 lg:grid-cols-2 lg:gap-16">
+      <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
+        <h2 class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300">
+          {content.formTitle}
+        </h2>
+        <form id="contact-form" novalidate>
+          <div class="grid gap-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <TextInput
+                id="hs-firstname-contacts"
+                label={content.firstName}
+                name="first-name"
+              />
+              <TextInput
+                id="hs-lastname-contacts"
+                label={content.lastName}
+                name="last-name"
+              />
+            </div>
+            <EmailContactInput id="hs-email-contacts" />
+            <PhoneInput id="hs-phone-number" />
+            <TextAreaInput
+              id="hs-about-contacts"
+              label={content.details}
+              name="message"
+            />
+          </div>
+
+          <div class="mt-4 grid">
+            <AuthBtn title={content.send} />
+          </div>
+
+          <div class="mt-3 text-center">
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+              {content.formSubTitle}
+            </p>
+          </div>
+        </form>
+
+        <script define:vars={{ successMsg: content.successMsg, errorMsg: content.errorMsg, validationMsg: content.validationMsg }}>
+          function showToast(message, type) {
+            const existing = document.getElementById('fs-toast');
+            if (existing) existing.remove();
+
+            const isSuccess = type === 'success';
+            const toast = document.createElement('div');
+            toast.id = 'fs-toast';
+            toast.style.cssText = `
+              position: fixed;
+              top: 24px;
+              left: 50%;
+              transform: translateX(-50%) translateY(-80px);
+              z-index: 9999;
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              padding: 14px 20px;
+              border-radius: 14px;
+              min-width: 300px;
+              max-width: 90vw;
+              box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+              font-size: 14px;
+              font-weight: 500;
+              transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
+              opacity: 0;
+              backdrop-filter: blur(12px);
+              border: 1px solid ${isSuccess ? 'rgba(6,182,212,0.3)' : 'rgba(239,68,68,0.3)'};
+              background: ${isSuccess ? 'rgba(236,254,255,0.95)' : 'rgba(254,242,242,0.95)'};
+              color: ${isSuccess ? '#0e7490' : '#dc2626'};
+            `;
+
+            const icon = isSuccess
+              ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`
+              : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+
+            const progressBar = document.createElement('div');
+            progressBar.style.cssText = `
+              position: absolute;
+              bottom: 0; left: 0;
+              height: 3px;
+              border-radius: 0 0 14px 14px;
+              width: 100%;
+              background: ${isSuccess ? '#06b6d4' : '#ef4444'};
+              transform-origin: left;
+              animation: fs-progress 4s linear forwards;
+            `;
+
+            toast.innerHTML = `${icon}<span style="flex:1">${message}</span>`;
+            toast.appendChild(progressBar);
+            document.body.appendChild(toast);
+
+            requestAnimationFrame(() => {
+              toast.style.transform = 'translateX(-50%) translateY(0)';
+              toast.style.opacity = '1';
+            });
+
+            const timer = setTimeout(() => {
+              toast.style.transform = 'translateX(-50%) translateY(-80px)';
+              toast.style.opacity = '0';
+              setTimeout(() => toast.remove(), 400);
+            }, 4000);
+
+            toast.addEventListener('click', () => {
+              clearTimeout(timer);
+              toast.style.transform = 'translateX(-50%) translateY(-80px)';
+              toast.style.opacity = '0';
+              setTimeout(() => toast.remove(), 400);
+            });
+          }
+
+          if (!document.getElementById('fs-toast-style')) {
+            const style = document.createElement('style');
+            style.id = 'fs-toast-style';
+            style.textContent = `@keyframes fs-progress { from { transform: scaleX(1); } to { transform: scaleX(0); } }`;
+            document.head.appendChild(style);
+          }
+
+          const form = document.getElementById('contact-form');
+          const submitBtn = form?.querySelector('button[type="submit"]');
+
+          function highlightEmpty(field) {
+            field.style.borderColor = '#ef4444';
+            field.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.15)';
+            field.addEventListener('input', () => {
+              field.style.borderColor = '';
+              field.style.boxShadow = '';
+            }, { once: true });
+          }
+
+          form?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fields = form.querySelectorAll('input, textarea');
+            let hasEmpty = false;
+            fields.forEach((field) => {
+              const f = field;
+              if (!f.value.trim()) {
+                highlightEmpty(f);
+                hasEmpty = true;
+              }
+            });
+
+            if (hasEmpty) {
+              showToast(validationMsg, 'error');
+              return;
+            }
+
+            const emailField = form.querySelector('input[type="email"]');
+            if (emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+              highlightEmpty(emailField);
+              showToast(validationMsg, 'error');
+              return;
+            }
+
+            if (submitBtn) submitBtn.disabled = true;
+
+            try {
+              const res = await fetch('https://formspree.io/f/xqenovaa', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { Accept: 'application/json' },
+              });
+
+              if (res.ok) {
+                form.reset();
+                showToast(successMsg, 'success');
+              } else {
+                showToast(errorMsg, 'error');
+              }
+            } catch {
+              showToast(errorMsg, 'error');
+            } finally {
+              if (submitBtn) submitBtn.disabled = false;
+            }
+          });
+        </script>
+      </div>
+
+      <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
+        <ContactIconBlock
+          heading={content.faqHeading}
+          content={content.faqContent}
+          isLinkVisible={true}
+          linkTitle={content.faqLink}
+          linkURL={content.faqURL}
+          isArrowVisible={true}
+        ><Icon name="chatBubble" />
+        </ContactIconBlock>
+
+        <ContactIconBlock
+          heading={content.productsHeading}
+          content={content.productsContent}
+          isLinkVisible={true}
+          linkTitle={content.productsLink}
+          linkURL={content.productsURL}
+          isArrowVisible={true}
+        ><Icon name="question" />
+        </ContactIconBlock>
+
+        <ContactIconBlock
+          heading={content.locationHeading}
+          content={content.locationContent}
+          isAddressVisible={true}
+          addressContent={content.locationAddress}
+        ><Icon name="mapPin" />
+        </ContactIconBlock>
+
+        <ContactIconBlock
+          heading={content.emailHeading}
+          content={content.emailContent}
+          isLinkVisible={true}
+          linkTitle={content.emailLink}
+          linkURL={content.emailURL}
+        ><Icon name="envelopeOpen" />
+        </ContactIconBlock>
+
+        <ContactIconBlock
+          heading={content.whatsappHeading}
+          content={content.whatsappContent}
+          isLinkVisible={true}
+          linkTitle={content.whatsappLink}
+          linkURL={content.whatsappURL}
+          isArrowVisible={true}
+        ><Icon name="chatBubble" />
+        </ContactIconBlock>
+      </div>
+    </div>
+  </div>
+</section>

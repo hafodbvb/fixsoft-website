@@ -1,0 +1,29 @@
+{
+  "subTitle": "Ask us anything about FixSoft and our products.",
+  "faqs": [
+    {
+      "question": "What services does FixSoft offer?",
+      "answer": "FixSoft provides professional web development, Android and iOS mobile apps, desktop software, custom enterprise systems, and ready-made SaaS products. We also offer hosting and ongoing technical support."
+    },
+    {
+      "question": "What is FixSoftRepair?",
+      "answer": "FixSoftRepair is our all-in-one repair shop management system. It covers customer and device management, inventory and spare parts, repair tracking, invoicing, staff and payroll management, installment sales, and more."
+    },
+    {
+      "question": "Which types of repair businesses can use FixSoftRepair?",
+      "answer": "FixSoftRepair is designed for all types of repair shops including phone repair, car repair, electronics repair, motor repair, and any other maintenance service business."
+    },
+    {
+      "question": "Can I get a custom software solution for my business?",
+      "answer": "Absolutely. FixSoft specializes in building custom software tailored to your exact business needs. Contact our team to discuss your project and get a personalized quote."
+    },
+    {
+      "question": "What kind of support do you provide?",
+      "answer": "All our products and projects come with dedicated technical support. FixSoftRepair subscribers get email and chat support, with priority response times on the Professional plan."
+    },
+    {
+      "question": "How do I get started with FixSoft?",
+      "answer": "Simply contact us through our contact page or request a demo of FixSoftRepair. Our team will guide you through the options and find the best solution for your business."
+    }
+  ]
+}

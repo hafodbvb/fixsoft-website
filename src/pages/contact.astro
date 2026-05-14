@@ -1,0 +1,32 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import ContactSection from '@components/sections/misc/ContactSection.astro';
+import { SITE } from '@data/constants';
+
+const pageTitle = `Contact | ${SITE.title}`;
+const metaDescription = 'Have a question or a project in mind? Contact the FixSoft team — we build web platforms, mobile apps, and custom software for businesses.';
+const ogTitle = `Contact Us | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://fixsoft.dz/contact',
+    url: 'https://fixsoft.dz/contact',
+    name: ogTitle,
+    description: metaDescription,
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://fixsoft.dz',
+      name: SITE.title,
+      description: SITE.description,
+    },
+    inLanguage: 'en-US',
+  }}
+>
+  <ContactSection />
+</MainLayout>

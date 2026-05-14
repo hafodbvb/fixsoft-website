@@ -1,0 +1,29 @@
+{
+  "subTitle": "Posez-nous toutes vos questions sur FixSoft et nos produits.",
+  "faqs": [
+    {
+      "question": "Quels services FixSoft propose-t-il ?",
+      "answer": "FixSoft propose du développement web professionnel, des applications mobiles Android et iOS, des logiciels desktop, des systèmes d'entreprise sur mesure et des produits SaaS prêts à l'emploi. Nous offrons également l'hébergement et un support technique continu."
+    },
+    {
+      "question": "Qu'est-ce que FixSoftRepair ?",
+      "answer": "FixSoftRepair est notre système tout-en-un de gestion de boutique de réparation. Il couvre la gestion des clients et des appareils, l'inventaire et les pièces détachées, le suivi des réparations, la facturation, la gestion du personnel et de la paie, les ventes à crédit, et bien plus encore."
+    },
+    {
+      "question": "Quels types d'ateliers peuvent utiliser FixSoftRepair ?",
+      "answer": "FixSoftRepair est conçu pour tous les types d'ateliers de réparation : téléphones, voitures, électronique, moteurs, et tout autre service de maintenance."
+    },
+    {
+      "question": "Puis-je obtenir un logiciel sur mesure pour mon entreprise ?",
+      "answer": "Absolument. FixSoft est spécialisé dans le développement de logiciels personnalisés adaptés à vos besoins exacts. Contactez notre équipe pour discuter de votre projet et obtenir un devis personnalisé."
+    },
+    {
+      "question": "Quel type de support proposez-vous ?",
+      "answer": "Tous nos produits et projets sont accompagnés d'un support technique dédié. Les abonnés FixSoftRepair bénéficient d'un support par email et messagerie, avec des délais de réponse prioritaires sur le plan Professionnel."
+    },
+    {
+      "question": "Comment démarrer avec FixSoft ?",
+      "answer": "Contactez-nous via notre page de contact ou demandez une démonstration de FixSoftRepair. Notre équipe vous guidera pour trouver la meilleure solution pour votre entreprise."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "title": "Simple, Transparent Pricing",
+  "subTitle": "Custom software solutions for individuals, businesses, and enterprises.",
+  "badge": "Most Popular",
+  "thirdOption": "Need a fully custom enterprise system?",
+  "btnText": "Request a Custom Quote",
+
+  "starterKit": {
+    "name": "Small Business",
+    "description": "For individuals & small shops",
+    "price": "Sur devis",
+    "cents": "",
+    "billingFrequency": "Price based on project scope",
+    "features": [
+      "Professional website or mobile app",
+      "Up to 5 pages / core features",
+      "Modern UI/UX design",
+      "1 month free support",
+      "Delivery within agreed timeline"
+    ],
+    "purchaseBtnTitle": "Get a Quote",
+    "purchaseLink": "/contact"
+  },
+
+  "professionalToolbox": {
+    "name": "Enterprise",
+    "description": "For companies & institutions",
+    "price": "Sur devis",
+    "cents": "",
+    "billingFrequency": "Price based on specifications",
+    "features": [
+      "Full custom software or ERP system",
+      "Web + Mobile (Android & iOS)",
+      "Database design & integrations",
+      "Staff training & documentation",
+      "Ongoing support & maintenance",
+      "SLA guarantee"
+    ],
+    "purchaseBtnTitle": "Request Enterprise Quote",
+    "purchaseLink": "/contact"
+  }
+}

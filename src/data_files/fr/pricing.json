@@ -1,0 +1,42 @@
+{
+  "title": "Tarification simple et transparente",
+  "subTitle": "Des solutions logicielles sur mesure pour les particuliers, les entreprises et les grands comptes.",
+  "badge": "Le plus populaire",
+  "thirdOption": "Besoin d'un système d'entreprise entièrement personnalisé ?",
+  "btnText": "Demander un devis personnalisé",
+
+  "starterKit": {
+    "name": "Petite Entreprise",
+    "description": "Pour les particuliers et petites boutiques",
+    "price": "Sur devis",
+    "cents": "",
+    "billingFrequency": "Tarif selon la portée du projet",
+    "features": [
+      "Site web ou application mobile professionnelle",
+      "Jusqu'à 5 pages / fonctionnalités principales",
+      "Design UI/UX moderne",
+      "1 mois de support gratuit",
+      "Livraison dans les délais convenus"
+    ],
+    "purchaseBtnTitle": "Obtenir un devis",
+    "purchaseLink": "/fr/contact"
+  },
+
+  "professionalToolbox": {
+    "name": "Entreprise",
+    "description": "Pour les sociétés et institutions",
+    "price": "Sur devis",
+    "cents": "",
+    "billingFrequency": "Tarif selon les spécifications",
+    "features": [
+      "Logiciel personnalisé ou système ERP complet",
+      "Web + Mobile (Android & iOS)",
+      "Conception de base de données & intégrations",
+      "Formation du personnel & documentation",
+      "Support et maintenance continus",
+      "Garantie SLA"
+    ],
+    "purchaseBtnTitle": "Devis Entreprise",
+    "purchaseLink": "/fr/contact"
+  }
+}
