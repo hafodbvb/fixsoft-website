@@ -2,6 +2,7 @@
 const navBarLinks = [
   { name: 'Home', url: '/' },
   { name: 'FixSoftRepair', url: '/products' },
+  { name: 'FixSoftMobile', url: '/products/fixsoftmobile' },
   { name: 'Contact', url: '/contact' },
 ];
 // An array of links for footer

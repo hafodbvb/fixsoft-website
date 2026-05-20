@@ -1,6 +1,7 @@
 const navBarLinks = [
   { name: 'الرئيسية', url: '/ar' },
   { name: 'FixSoftRepair', url: '/ar/products' },
+  { name: 'FixSoftMobile', url: '/ar/products/fixsoftmobile' },
   { name: 'تواصل معنا', url: '/ar/contact' },
 ];
 
